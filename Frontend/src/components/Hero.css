@@ -434,44 +434,69 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.65;
+  object-position: center 45%;
+  opacity: 0.85;
 }
 
 /* LEFT: right edge of this 50%-wide box = viewport center when left:0 */
 .hero__portrait--left {
   left: 0;
-  animation: slide-to-left 7s cubic-bezier(0.3, 1, 0.4, 1) 1.5s both;
+  animation: slide-to-left 10s cubic-bezier(0.3, 1, 0.4, 1) 1.5s both;
 }
 
-/* RIGHT half of Image 2 aligns to the container's right edge (= viewport center) */
+/* Left portrait: center the face */
 .hero__portrait--left img {
-  object-position: right top;
+  object-position: center 45%;
 }
 
 /* RIGHT: left edge of this 50%-wide box = viewport center when right:0 */
 .hero__portrait--right {
   right: 0;
-  animation: slide-to-right 7s cubic-bezier(0.3, 1, 0.4, 1) 1.5s both;
+  animation: slide-to-right 10s cubic-bezier(0.3, 1, 0.4, 1) 1.5s both;
 }
 
-/* LEFT half of Image 1 aligns to the container's left edge (= viewport center) */
+/* Right portrait: center the face */
 .hero__portrait--right img {
-  object-position: left top;
+  object-position: center 45%;
 }
 
 /* ---- Portrait Slide Animations ---- */
 /* Left portrait: starts hidden completely off-screen-right (left:100%), slides to left:0 */
 @keyframes slide-to-left {
-  0%   { left: 100%; }
-  15%  { left: 50%;  }
-  100% { left: 0;    }
+  0% {
+    left: 100%;
+  }
+
+  6.2% {
+    left: 50%;
+  }
+
+  65% {
+    left: 50%;
+  }
+
+  100% {
+    left: 0;
+  }
 }
 
 /* Right portrait: starts hidden completely off-screen-left (right:100%), slides to right:0 */
 @keyframes slide-to-right {
-  0%   { right: 100%; }
-  15%  { right: 50%;  }
-  100% { right: 0;    }
+  0% {
+    right: 100%;
+  }
+
+  6.2% {
+    right: 50%;
+  }
+
+  65% {
+    right: 50%;
+  }
+
+  100% {
+    right: 0;
+  }
 }
 
 .hero__portrait-overlay {
@@ -482,16 +507,16 @@
 
 .hero__portrait-overlay--left {
   background:
-    linear-gradient(90deg, transparent 0%, transparent 30%, var(--bg-primary) 90%),
-    linear-gradient(180deg, transparent 0%, transparent 70%, var(--bg-primary) 100%),
-    linear-gradient(0deg, transparent 0%, transparent 85%, var(--bg-primary) 100%);
+    linear-gradient(90deg, rgba(5, 5, 16, 0.6) 0%, transparent 25%, transparent 80%, var(--bg-primary) 100%),
+    linear-gradient(180deg, transparent 0%, transparent 75%, var(--bg-primary) 100%),
+    linear-gradient(0deg, transparent 0%, transparent 92%, var(--bg-primary) 100%);
 }
 
 .hero__portrait-overlay--right {
   background:
-    linear-gradient(-90deg, transparent 0%, transparent 30%, var(--bg-primary) 90%),
-    linear-gradient(180deg, transparent 0%, transparent 70%, var(--bg-primary) 100%),
-    linear-gradient(0deg, transparent 0%, transparent 85%, var(--bg-primary) 100%);
+    linear-gradient(-90deg, rgba(5, 5, 16, 0.6) 0%, transparent 25%, transparent 80%, var(--bg-primary) 100%),
+    linear-gradient(180deg, transparent 0%, transparent 75%, var(--bg-primary) 100%),
+    linear-gradient(0deg, transparent 0%, transparent 92%, var(--bg-primary) 100%);
 }
 
 /* ---- Bottom Line ---- */

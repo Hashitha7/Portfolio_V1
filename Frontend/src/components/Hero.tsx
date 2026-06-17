@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import portraitLeft from '../assets/Image 2.png';
-import portraitRight from '../assets/Image 1.png';
-import './Hero.css';
+import portraitLeft from '../assets/I-2.png';
+import portraitRight from '../assets/I-1.png';
+import './Hero.css'; 
 
 const roles = ['UI/UX Creator', 'Full Stack Developer', 'Software Engineer', 'Creative Designer'];
 
