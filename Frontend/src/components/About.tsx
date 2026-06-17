@@ -57,7 +57,7 @@ export default function About() {
             </div>
             {/* Center circle */}
             <div className="about__avatar-circle">
-              <span className="about__avatar-text">SPS</span>
+              <span className="about__avatar-text">HD</span>
             </div>
           </div>
 

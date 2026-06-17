@@ -25,7 +25,7 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} id="main-nav">
       <div className="navbar__logo">
-        <span className="navbar__logo-text">S.P.S</span>
+        <span className="navbar__logo-text">H.D</span>
         <span className="navbar__logo-dot"></span>
       </div>
 

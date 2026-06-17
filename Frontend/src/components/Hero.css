@@ -11,7 +11,7 @@
   justify-content: center;
   padding: 120px 24px 60px;
   overflow: hidden;
-  background: 
+  background:
     radial-gradient(ellipse 80% 60% at 50% 50%, rgba(88, 28, 135, 0.15) 0%, transparent 70%),
     radial-gradient(ellipse 60% 40% at 20% 50%, rgba(255, 107, 53, 0.08) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at 80% 50%, rgba(255, 107, 53, 0.08) 0%, transparent 60%),
@@ -54,10 +54,25 @@
 }
 
 @keyframes float-particle {
-  0% { opacity: 0; transform: translateY(0) scale(0); }
-  20% { opacity: 0.8; transform: translateY(-20px) scale(1); }
-  80% { opacity: 0.4; transform: translateY(-80px) scale(0.8); }
-  100% { opacity: 0; transform: translateY(-120px) scale(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+
+  20% {
+    opacity: 0.8;
+    transform: translateY(-20px) scale(1);
+  }
+
+  80% {
+    opacity: 0.4;
+    transform: translateY(-80px) scale(0.8);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-120px) scale(0);
+  }
 }
 
 /* ---- Code Snippets ---- */
@@ -118,8 +133,15 @@
 }
 
 @keyframes code-fade {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.8; }
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 /* ---- Comment ---- */
@@ -143,21 +165,19 @@
   letter-spacing: 4px;
   margin: 0 0 16px;
   line-height: 1.1;
-  background: linear-gradient(135deg, 
-    #00f0ff 0%, 
-    #a855f7 25%, 
-    #ff00ff 50%, 
-    #ff1493 75%, 
-    #00f0ff 100%
-  );
+  background: linear-gradient(135deg,
+      #00f0ff 0%,
+      #a855f7 25%,
+      #ff00ff 50%,
+      #ff1493 75%,
+      #00f0ff 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient-shift 4s ease infinite;
   text-shadow: none;
-  filter: drop-shadow(0 0 30px rgba(0, 240, 255, 0.3))
-          drop-shadow(0 0 60px rgba(168, 85, 247, 0.2));
+  filter: drop-shadow(0 0 30px rgba(0, 240, 255, 0.3)) drop-shadow(0 0 60px rgba(168, 85, 247, 0.2));
 }
 
 .hero__name-dot {
@@ -167,9 +187,17 @@
 }
 
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* ---- Typing Role ---- */
@@ -198,8 +226,15 @@
 }
 
 @keyframes blink-cursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 /* ---- Tagline ---- */
@@ -387,30 +422,56 @@
 /* ---- Portrait Images ---- */
 .hero__portrait {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 35%;
-  max-width: 400px;
+  top: 0;
+  bottom: 0;
+  width: 50%;
   z-index: 3;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .hero__portrait img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-  filter: contrast(1.2) brightness(0.6) saturate(0.8);
-  mix-blend-mode: luminosity;
-  opacity: 0.5;
+  opacity: 0.65;
 }
 
+/* LEFT: right edge of this 50%-wide box = viewport center when left:0 */
 .hero__portrait--left {
-  left: -5%;
+  left: 0;
+  animation: slide-to-left 7s cubic-bezier(0.3, 1, 0.4, 1) 1.5s both;
 }
 
+/* RIGHT half of Image 2 aligns to the container's right edge (= viewport center) */
+.hero__portrait--left img {
+  object-position: right top;
+}
+
+/* RIGHT: left edge of this 50%-wide box = viewport center when right:0 */
 .hero__portrait--right {
-  right: -5%;
-  transform: translateY(-50%) scaleX(-1);
+  right: 0;
+  animation: slide-to-right 7s cubic-bezier(0.3, 1, 0.4, 1) 1.5s both;
+}
+
+/* LEFT half of Image 1 aligns to the container's left edge (= viewport center) */
+.hero__portrait--right img {
+  object-position: left top;
+}
+
+/* ---- Portrait Slide Animations ---- */
+/* Left portrait: starts hidden completely off-screen-right (left:100%), slides to left:0 */
+@keyframes slide-to-left {
+  0%   { left: 100%; }
+  15%  { left: 50%;  }
+  100% { left: 0;    }
+}
+
+/* Right portrait: starts hidden completely off-screen-left (right:100%), slides to right:0 */
+@keyframes slide-to-right {
+  0%   { right: 100%; }
+  15%  { right: 50%;  }
+  100% { right: 0;    }
 }
 
 .hero__portrait-overlay {
@@ -420,11 +481,17 @@
 }
 
 .hero__portrait-overlay--left {
-  background: linear-gradient(90deg, transparent 0%, var(--bg-primary) 85%);
+  background:
+    linear-gradient(90deg, transparent 0%, transparent 30%, var(--bg-primary) 90%),
+    linear-gradient(180deg, transparent 0%, transparent 70%, var(--bg-primary) 100%),
+    linear-gradient(0deg, transparent 0%, transparent 85%, var(--bg-primary) 100%);
 }
 
 .hero__portrait-overlay--right {
-  background: linear-gradient(-90deg, transparent 0%, var(--bg-primary) 85%);
+  background:
+    linear-gradient(-90deg, transparent 0%, transparent 30%, var(--bg-primary) 90%),
+    linear-gradient(180deg, transparent 0%, transparent 70%, var(--bg-primary) 100%),
+    linear-gradient(0deg, transparent 0%, transparent 85%, var(--bg-primary) 100%);
 }
 
 /* ---- Bottom Line ---- */
@@ -434,13 +501,12 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, 
-    transparent, 
-    var(--cyan) 20%, 
-    var(--magenta) 50%, 
-    var(--cyan) 80%, 
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      var(--cyan) 20%,
+      var(--magenta) 50%,
+      var(--cyan) 80%,
+      transparent);
   opacity: 0.4;
 }
 

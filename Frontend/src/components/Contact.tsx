@@ -177,7 +177,7 @@ export default function Contact() {
             <span className="contact__dot contact__dot--yellow"></span>
             <span className="contact__dot contact__dot--green"></span>
           </div>
-          <span className="contact__terminal-user">contact@pawara-sasmina.dev</span>
+          <span className="contact__terminal-user">contact@hashitha-danidu.dev</span>
           <span className="contact__terminal-time">{getCurrentDateTime()}</span>
         </div>
 

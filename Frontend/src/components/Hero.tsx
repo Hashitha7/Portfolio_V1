@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import portrait from '../assets/portrait.png';
+import portraitLeft from '../assets/Image 2.png';
+import portraitRight from '../assets/Image 1.png';
 import './Hero.css';
 
 const roles = ['UI/UX Creator', 'Full Stack Developer', 'Software Engineer', 'Creative Designer'];
@@ -95,7 +96,7 @@ export default function Hero() {
       {/* Floating code snippets */}
       <div className="hero__code-snippets">
         <span className="hero__code hero__code--left-1">
-          <span className="code-keyword">const</span> developer = <span className="code-string">"Pawara Sasmina"</span>;
+          <span className="code-keyword">const</span> developer = <span className="code-string">"Hashitha Danidu"</span>;
         </span>
         <span className="hero__code hero__code--right-1">
           <span className="code-keyword">return</span> innovation;
@@ -114,9 +115,9 @@ export default function Hero() {
       {/* Main Name */}
       <h1 className="hero__name">
         <span className="hero__name-dot">.</span>
-        <span className="hero__name-first">S</span>
+        <span className="hero__name-first">H</span>
         <span className="hero__name-dot">.</span>
-        <span className="hero__name-main">PAWARA SASMINA</span>
+        <span className="hero__name-main">HASHITHA DANIDU</span>
       </h1>
 
       {/* Typing Role */}
@@ -177,11 +178,11 @@ export default function Hero() {
 
       {/* Portrait Images - Left & Right */}
       <div className="hero__portrait hero__portrait--left">
-        <img src={portrait} alt="S.Pawara Sasmina" />
+        <img src={portraitLeft} alt="H.Hashitha Danidu" />
         <div className="hero__portrait-overlay hero__portrait-overlay--left"></div>
       </div>
       <div className="hero__portrait hero__portrait--right">
-        <img src={portrait} alt="S.Pawara Sasmina" />
+        <img src={portraitRight} alt="H.Hashitha Danidu" />
         <div className="hero__portrait-overlay hero__portrait-overlay--right"></div>
       </div>
 
